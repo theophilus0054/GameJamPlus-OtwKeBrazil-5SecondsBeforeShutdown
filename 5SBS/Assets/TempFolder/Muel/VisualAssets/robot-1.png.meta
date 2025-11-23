@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 534d97c6902d2174697e4b634042dda7
+guid: 753a7e3ac44056c469e9320b22e00f3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2246651739574490482
-    second: ButtonOff (2)_0
+      213: 6493234237439521377
+    second: robot-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonOff (2)_0
+      name: robot-1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 120
-        height: 50
+        x: 6
+        y: 6
+        width: 17
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 275d9579ad5bd2f10800000000000000
-      internalID: 2246651739574490482
+      spriteID: 162bcf5e22a9c1a50800000000000000
+      internalID: 6493234237439521377
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ButtonOff (2)_0: 2246651739574490482
+      robot-1_0: 6493234237439521377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

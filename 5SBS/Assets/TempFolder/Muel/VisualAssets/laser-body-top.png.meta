@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 534d97c6902d2174697e4b634042dda7
+guid: e3da0c0cae00b9a41923c0782440484f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2246651739574490482
-    second: ButtonOff (2)_0
+      213: 1029730106815366076
+    second: laser-body-top_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonOff (2)_0
+      name: laser-body-top_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 120
-        height: 50
+        x: 8
+        y: 26
+        width: 16
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 275d9579ad5bd2f10800000000000000
-      internalID: 2246651739574490482
+      spriteID: cb3414f83165a4e00800000000000000
+      internalID: 1029730106815366076
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ButtonOff (2)_0: 2246651739574490482
+      laser-body-top_0: 1029730106815366076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
