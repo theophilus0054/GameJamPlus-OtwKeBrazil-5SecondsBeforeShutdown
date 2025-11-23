@@ -255,6 +255,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16219440}
   m_CullTransparentMesh: 1
+--- !u!1 &166710970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166710971}
+  - component: {fileID: 166710972}
+  m_Layer: 0
+  m_Name: DoorHistory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &166710971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166710970}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924257732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166710972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166710970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec479b0beb090b4c90487d0a35cf0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorHistory
+  doors: []
+  openSprite: {fileID: 0}
+  closedSprite: {fileID: 0}
 --- !u!1 &178386857
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,14 +365,13 @@ MonoBehaviour:
   player: {fileID: 2115179419}
   playerSpawnPoint: {fileID: 964849208}
   transformHistory: {fileID: 1714607053}
+  doorHistory: {fileID: 166710972}
   objectManager: {fileID: 697505701}
   stageTime: 5
   currentTime: 0
   timeText: {fileID: 521622229}
   uiWinScreen: {fileID: 317981066}
-  doors:
-  - {fileID: 730047748}
-  - {fileID: 2073253234}
+  doorsParent: {fileID: 696051266}
   openDoorSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   closedDoorSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &248539109
@@ -473,7 +519,7 @@ GameObject:
   - component: {fileID: 505137198}
   - component: {fileID: 505137197}
   m_Layer: 5
-  m_Name: Button
+  m_Name: UndoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1266,7 @@ GameObject:
   - component: {fileID: 723978530}
   - component: {fileID: 723978529}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1529,6 +1575,7 @@ Transform:
   - {fileID: 1615971503}
   - {fileID: 1253209435}
   - {fileID: 696051266}
+  - {fileID: 166710971}
   m_Father: {fileID: 1308926376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964849207
@@ -1640,7 +1687,7 @@ GameObject:
   - component: {fileID: 1092665093}
   - component: {fileID: 1092665092}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1709,7 +1756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1092665093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 248539108}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1092665093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2803,7 +2862,7 @@ Transform:
   m_GameObject: {fileID: 1714607051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.18139, y: -1.0078, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2830,7 +2889,6 @@ MonoBehaviour:
   parentObject: {fileID: 703190522}
   playerPosition: {fileID: 2115179420}
   spawnPrefab: {fileID: 7112070408628334991, guid: 80c75b34399a7e04d9beba59930f44fa, type: 3}
-  parentNonMoveable: {fileID: 924257732}
 --- !u!1 &1777976645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,7 +2902,7 @@ GameObject:
   - component: {fileID: 1777976648}
   - component: {fileID: 1777976647}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3312,7 +3370,7 @@ GameObject:
   - component: {fileID: 1951713056}
   - component: {fileID: 1951713055}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3445,7 +3503,7 @@ GameObject:
   - component: {fileID: 2006541721}
   - component: {fileID: 2006541720}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

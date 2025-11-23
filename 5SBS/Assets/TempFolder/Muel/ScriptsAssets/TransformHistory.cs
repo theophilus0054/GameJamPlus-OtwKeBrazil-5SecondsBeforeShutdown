@@ -13,9 +13,6 @@ public class TransformHistory : MonoBehaviour
     [Header("Prefab untuk Spawn")]
     public GameObject spawnPrefab;
 
-    [Header("Non-Moveable Objects")]
-    public Transform parentNonMoveable;
-
 
     // -------------------------------
     // DATA HISTORY
@@ -27,11 +24,6 @@ public class TransformHistory : MonoBehaviour
     // history object yang pernah dibuat
     private List<GameObject> objectHistory = new List<GameObject>();
 
-    // history aktif/tidaknya non-moveable objects
-    private List<List<bool>> nonMoveableHistory = new List<List<bool>>();
-
-
-
     // ============================================
     // SAVE LOG: Simpan child positions + spawn object
     // ============================================
@@ -42,9 +34,6 @@ public class TransformHistory : MonoBehaviour
 
         if (parentObject != null && spawnPrefab != null && playerPosition != null)
             SaveObjectLog();
-
-        if (parentNonMoveable != null)
-            SaveNonMoveableLog();
     }
 
 
@@ -77,21 +66,6 @@ public class TransformHistory : MonoBehaviour
         Debug.Log("Spawned & Saved Object Log. Total: " + objectHistory.Count);
     }
 
-    private void SaveNonMoveableLog()
-    {
-        if (parentNonMoveable == null) return;
-
-        List<bool> snapshot = new List<bool>();
-
-        foreach (Transform child in parentNonMoveable)
-            snapshot.Add(child.gameObject.activeSelf);
-
-        nonMoveableHistory.Add(snapshot);
-
-        Debug.Log("Saved Non-Moveable Log. Total: " + nonMoveableHistory.Count);
-    }
-
-
 
     // ============================================
     // UNDO: kembalikan child positions + hapus last object
@@ -100,7 +74,6 @@ public class TransformHistory : MonoBehaviour
     {
         UndoPosition();
         UndoObject();
-        UndoNonMoveable();
     }
 
 
@@ -145,34 +118,11 @@ public class TransformHistory : MonoBehaviour
         Debug.Log("Undo Object. Remaining: " + objectHistory.Count);
     }
 
-    private void UndoNonMoveable()
-    {
-        if (nonMoveableHistory.Count == 0)
-        {
-            Debug.Log("No non-moveable history.");
-            return;
-        }
-
-        List<bool> lastSnapshot = nonMoveableHistory[nonMoveableHistory.Count - 1];
-
-        int index = 0;
-        foreach (Transform child in parentNonMoveable)
-        {
-            child.gameObject.SetActive(lastSnapshot[index]);
-            index++;
-        }
-
-        nonMoveableHistory.RemoveAt(nonMoveableHistory.Count - 1);
-
-        Debug.Log("Undo Non-Moveable. Remaining: " + nonMoveableHistory.Count);
-    }
-
 
     public void ClearHistory()
     {
         positionHistory.Clear();
         objectHistory.Clear();
-        nonMoveableHistory.Clear();
 
         Debug.Log("Cleared all history.");
     }
